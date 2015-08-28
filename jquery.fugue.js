@@ -74,14 +74,13 @@
     };
 
     $.fn.fugue = function(options, callback) {
-      var fugue = $(this).data('fugue');
-
       if ($.isFunction(options)) {
         callback = options;
         options = null;
       }
       if((typeof(options)).match('object|undefined')) {
         return this.each(function(i) {
+          var fugue = $(this).data('fugue');
           if(!fugue) {
             fugue = $.fugue(this, options);
             if(callback)
